@@ -1,0 +1,24 @@
+{
+  "name": "nuevoproyectonode2",
+  "version": "1.0.0",
+  "description": "API ReSTFul",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NachoAlvez/NuevoProyectoNode2.git"
+  },
+  "author": "NachoAlvez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NachoAlvez/NuevoProyectoNode2/issues"
+  },
+  "homepage": "https://github.com/NachoAlvez/NuevoProyectoNode2#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
