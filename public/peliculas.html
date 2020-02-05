@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width = device-width, initial-scale= 1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie-edge">
+		<title>Peliculas on Demand</title>
+	</head>
+	<body>
+		<h1>Peliculas On Demand</h1>
+		<form action="http://localhost/enviar" method="post">
+
+			<label for="nombre">Ingrese pelicula que desea ver</label>
+			<input type="text" name="nombre" placeholder="Ej: Forrest Gump">
+			
+			<br>
+
+			<label for="correo">Ingrese su E-Mail:</label>
+			<input type="email" name="correo" placeholder="Ej: obi.juan@jedi.com">
+
+			<br>
+
+			<label for="genero">Elija el genero:</label>
+			<select name="genero" required>
+				<option value="ax45">Comedia</option>
+				<option value="ax38">Suspenso</option>
+				<option value="ax67">Terror</option>
+                <option value="ax14">Documental</option>
+                <option value="ax15">Infantil</option>
+			</select>
+
+			<br>
+
+			<label for="descripcion">Ingrese su descripcion:</label>
+			<textarea name="descripcion" cols="30" rows="10" placeholder="Max: 100 caracteres"></textarea>
+
+			<br>
+
+			<input class ="btn btn-primary" type="submit" value="Done!">
+
+		</form>
+		<script>
+
+			const formulario = document.querySelector("form")
+
+			formulario.onsubmit = function(evento){
+				evento.preventDefault()
+
+				let ahora = new Date()
+				let datos = new FormData(this)
+
+				datos.append("fecha", ahora.valueOf())
+
+				//Enviar datos asincronicamente...
+				fetch( this.action, {
+					method : this.method,
+					body : datos
+				}).then(function(response){
+					return response.json()
+
+				}).then(function(server){
+
+					console.clear()
+					alert(server.msg)
+					console.log(server)
+
+				})
+			}
+		
+		</script>
+	</body>
+</html>
